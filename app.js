@@ -1,25 +1,24 @@
 //* Calculadora de IVA *//
-const IVA = 1.21
+const iva = 1.21
 
-let precioProducto = true
+let precioProducto = 0
 
-while (precioProducto) {
-    precioProducto = parseFloat(prompt("Ingrese el importe del producto que desea ingresar para calcular el IVA"))
-    console.log(precioProducto)
-    let respuesta = prompt("Desea ingresar mas precios?").toLocaleLowerCase()
-    
-    if (respuesta == "no"){
-        precioProducto = false
+let respuesta = 0
+
+function CalcularIva(precioProducto = 0) {
+    return precioProducto * iva 
+}
+
+let numero1
+do {
+    numero1 = parseFloat (prompt("Ingrese el importe del producto que desea calcular el IVA"))
+
+    if (isNaN (numero1)){
+        alert("Por favor ingresar numeros validos")
     }
-    
-}
+} while (isNaN (numero1))
 
-function CalcularIVA(precioProducto = 0) {
-    return precioProducto * IVA 
-}
+let resultado = CalcularIva (numero1, iva)
+alert("Su resultado es " + resultado)
 
-
-let resultado = CalcularIVA
 console.log(resultado)
-
-
